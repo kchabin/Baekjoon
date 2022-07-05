@@ -1,0 +1,95 @@
+//2525번 풀이 1
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int h = 0;
+    int m = 0;
+    int t = 0;
+
+    cin >> h >> m;
+    cin >> t;
+
+    int hour = 0;
+    int min = (m + t);
+
+
+    if (min >= 60)
+    {
+        hour = h + min / 60;
+        min = min % 60;
+
+        if (hour > 23)
+        {
+            hour = hour % 24;
+            cout << hour << " " << min << endl;
+        }
+        else
+        {
+            cout << hour << " " << min << endl;
+        }
+    }
+    else if(min<60)
+    {
+        hour = h;
+        cout << hour << " " << min << endl;
+    }
+
+    return 0;
+
+}
+
+
+//2525번 풀이 2
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int h = 0;  //현재 시
+    int m = 0;  //현재 분
+    int t = 0;  //조리 시간
+
+    cin >> h >> m;
+    cin >> t;
+
+    int hour = 0;
+
+
+    int min = (m + t) % 60;
+
+    if (t <= 60)
+    {
+        hour = h + (m + t) / 60;
+
+        if (hour > 23)
+        {
+            hour = hour % 24;
+            cout << hour << " " << min << endl;
+        }
+        else
+        {
+            cout << hour << " " << min << endl;
+        }
+    }
+    else if (t > 60)
+    {
+        hour = h + (m + t) / 60;
+
+        if (hour > 23)
+        {
+            hour = hour % 24;
+            cout << hour << " " << min << endl;
+        }
+        else
+        {
+            hour = h + (m + t) / 60;
+            cout << hour << " " << min << endl;
+        }
+
+    }
+
+    return 0;
+
+}
